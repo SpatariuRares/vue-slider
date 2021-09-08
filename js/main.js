@@ -13,9 +13,9 @@ const app = new Vue({
             "img/image4.jpg",
         ],
     },
-    /*mounted:{
-
-    },*/
+    mounted(){
+        this.startPhoto()
+    },
     methods:{
         nextPhoto() {
             this.counter++;
@@ -28,6 +28,11 @@ const app = new Vue({
             if (this.counter < 0) {
                 this.counter = 3;
             }
+        },
+        startPhoto(){
+            setInterval(() => {
+                this.nextPhoto();
+            },3000)
         }
     }
 })
