@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Titolo Documento</title>
+</head>
+
+<body class="debug">
+    <div id="root" class="flex margin-center align-center">
+        <div id="prev">
+            <i @click="prevPhoto" class="fas fa-angle-left"></i>
+        </div>
+        <div id="image" class="flex justify-center">
+            <img :src="photos[counter]" alt="">
+            <nav>
+                <i class="fas fa-circle" :class="(index==counter) ? 'blue' : null" v-for="(photo, index) in photos"></i>
+            </nav>
+        </div>
+        <div id="next">
+             <i @click="nextPhoto" class="fas fa-angle-right"></i> 
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
