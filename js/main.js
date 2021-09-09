@@ -12,9 +12,20 @@ const app = new Vue({
             "img/image3.jpg",
             "img/image4.jpg",
         ],
+        interval: null,
+    },
+    created(){
+        this.startPhoto();
     },
     mounted(){
-        this.startPhoto()
+        document.addEventListener("keydown",(e)=>{
+            if(e.key =="ArrowRight"){
+                this.nextPhoto();
+            }
+            else if(e.key=="ArrowLeft"){
+                this.prevPhoto();
+            }
+        })
     },
     methods:{
         nextPhoto() {
@@ -30,9 +41,15 @@ const app = new Vue({
             }
         },
         startPhoto(){
-            setInterval(() => {
+            this.interval=setInterval(() => {
                 this.nextPhoto();
-            },3000)
+            },2000)
+        },
+        stopPhoto(){
+            clearInterval(this.interval);
+        },
+        goPhoto(counter){
+            this.counter=counter;
         }
     }
 })

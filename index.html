@@ -14,16 +14,16 @@
 <body class="debug">
     <div id="root" class="flex margin-center align-center">
         <div id="prev">
-            <i @click="prevPhoto" class="fas fa-angle-left"></i>
+            <i @click="prevPhoto" @keyup.right="prevPhoto" class="fas fa-angle-left"></i>
         </div>
-        <div id="image" class="flex justify-center">
+        <div @mouseover="stopPhoto" @mouseleave="startPhoto" id="image" class="flex justify-center">
             <img :src="photos[counter]" alt="">
             <nav>
-                <i class="fas fa-circle" :class="(index==counter) ? 'blue' : null" v-for="(photo, index) in photos"></i>
+                <i @click="goPhoto(index)" class="fas fa-circle" :class="(index==counter) ? 'blue' : null" v-for="(photo, index) in photos"></i>
             </nav>
         </div>
         <div id="next">
-             <i @click="nextPhoto" class="fas fa-angle-right"></i> 
+             <i @click="nextPhoto" @keyup.left="nextPhoto" class="fas fa-angle-right"></i> 
         </div>
     </div>
     <script src="js/main.js"></script>
