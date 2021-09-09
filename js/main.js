@@ -37,13 +37,13 @@ const app = new Vue({
         prevPhoto() {
             this.counter--;
             if (this.counter < 0) {
-                this.counter = 3;
+                this.counter = this.photos.length-1;
             }
         },
         startPhoto(){
             this.interval=setInterval(() => {
                 this.nextPhoto();
-            },2000)
+            },500)
         },
         stopPhoto(){
             clearInterval(this.interval);
